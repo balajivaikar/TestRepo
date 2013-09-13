@@ -6,7 +6,7 @@ import java.util.concurrent.BlockingQueue;
 public class PrinterV1 {
 	private static BlockingQueue<String> queue = new ArrayBlockingQueue<String>(
 			10);
-	private static boolean printerRunningFlag = false;
+	private static boolean isPrinterRunning = false;
 	private static PrinterV1 instance = new PrinterV1();
 
 	private PrinterV1() {
@@ -21,7 +21,7 @@ public class PrinterV1 {
 		// queue.offer(job);
 		try {
 			queue.put(job);
-			if(!printerRunningFlag) {
+			if(!isPrinterRunning) {
 				this.print();
 			}
 		} catch (InterruptedException e) {
@@ -32,21 +32,21 @@ public class PrinterV1 {
 
 	private void print() {
 		while (true) {
-			printerRunningFlag = true;
+			isPrinterRunning = true;
 			if (queue.size() > 0) {
 				System.out.println("Printing--->" + queue.poll());
 			}
 			else {
 				//TODO: On Queue is empty, stop the printer
-				printerRunningFlag = false;
+				isPrinterRunning = false;
 				return;
 			}
 			try {
-				Thread.sleep(400);
+				Thread.sleep(10);
 				
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
-				printerRunningFlag = false;
+				isPrinterRunning = false;
 				e.printStackTrace();
 			}
 		}
