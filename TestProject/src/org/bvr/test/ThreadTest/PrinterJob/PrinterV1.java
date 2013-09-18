@@ -1,4 +1,4 @@
-package org.bvr.test.ThreadTest;
+package org.bvr.test.ThreadTest.PrinterJob;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
