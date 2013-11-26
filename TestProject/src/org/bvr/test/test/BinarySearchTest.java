@@ -30,7 +30,7 @@ public class BinarySearchTest {
 	
 	public static void main(String[] args) {
 		BinarySearchTest test = new BinarySearchTest();
-		System.out.println("Search index = " + test.search(0,9,10));
+		System.out.println("Search index = " + test.search(0,9,610));
 		
 	}
 
