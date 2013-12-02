@@ -1,4 +1,4 @@
-package org.bvr.test.ThreadTest.jobQueue;
+package org.vibasoft.bvr.test.ThreadTest.jobQueue;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

@@ -1,4 +1,4 @@
-package org.bvr.test.ThreadTest.KeyboardTest;
+package org.vibasoft.bvr.test.ThreadTest.KeyboardTest;
 
 import java.util.Random;
 

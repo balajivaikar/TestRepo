@@ -1,4 +1,4 @@
-package org.bvr.test.test;
+package org.vibasoft.bvr.test.interview;
 
 public class CompileTimeTest {
 

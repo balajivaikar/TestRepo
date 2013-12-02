@@ -61,7 +61,7 @@ public class TestGenerics<T> {
 */
 
 
-package org.bvr.test.test;
+package org.vibasoft.bvr.test.interview;
 
 import java.util.ArrayList;
 import java.util.HashMap;

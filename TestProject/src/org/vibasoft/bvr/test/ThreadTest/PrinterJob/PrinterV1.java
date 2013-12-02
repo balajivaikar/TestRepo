@@ -1,4 +1,4 @@
-package org.bvr.test.ThreadTest.PrinterJob;
+package org.vibasoft.bvr.test.ThreadTest.PrinterJob;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

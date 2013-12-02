@@ -1,10 +1,10 @@
-package org.bvr.test.ThreadTest.KeyboardTest;
+package org.vibasoft.bvr.test.ThreadTest.KeyboardTest;
 
-public class TextProcessor implements Runnable {
+public class NumberProcessor implements Runnable {
 
 	KeyboardInputQueue queue;
 	Object qObj;
-	public TextProcessor(KeyboardInputQueue q) {
+	public NumberProcessor(KeyboardInputQueue q) {
 		this.queue = q;
 	}
 
@@ -14,11 +14,10 @@ public class TextProcessor implements Runnable {
 		while (true) {
 			synchronized (this.queue) {
 				try {
-					
 					qObj = queue.getQueue().peek();
-					if (qObj != null && qObj instanceof String) {
-						String t = (String) queue.getQueue().poll();
-						System.out.println("TextProcessor:" + t + "\tsize: " + queue.getQueue().size());
+					if ( qObj != null && qObj instanceof Integer) {
+						Integer i = (Integer) queue.getQueue().poll();
+						System.out.println("NumberProcessor:" + i + "\tsize: " + queue.getQueue().size());
 						queue.notifyAll();
 					}
 					queue.wait();

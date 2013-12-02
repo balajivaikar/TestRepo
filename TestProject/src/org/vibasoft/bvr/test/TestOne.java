@@ -1,4 +1,4 @@
-package org.bvr.test;
+package org.vibasoft.bvr.test;
 
 import java.util.*;
 

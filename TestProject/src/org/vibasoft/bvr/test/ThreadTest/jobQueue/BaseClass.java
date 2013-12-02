@@ -1,4 +1,4 @@
-package org.bvr.test.ThreadTest.jobQueue;
+package org.vibasoft.bvr.test.ThreadTest.jobQueue;
 
 public class BaseClass {
 	
