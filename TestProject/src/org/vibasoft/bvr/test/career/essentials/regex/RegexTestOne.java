@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class RegexTestOne {
 
-	String patternStr = "^[a-zA-Z][^0-9]";
+	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{2,17}[^._-]$";
 	Pattern pattern;
 	Matcher matcher;
 	
@@ -15,7 +15,7 @@ public class RegexTestOne {
 	
 	public boolean validateUserName(String userName) {
 		matcher = pattern.matcher(userName);
-		boolean validUserName = matcher.matches();
+		boolean validUserName = matcher.find();
 		System.out.println("Matching count = " + matcher.groupCount());
 		int i = 0;
 		while(i < matcher.groupCount()) {
@@ -27,7 +27,7 @@ public class RegexTestOne {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		RegexTestOne test = new RegexTestOne();
-		System.out.println(test.validateUserName("Balaji The Great"));
+		System.out.println(test.validateUserName("John123"));
 	}
 
 }
