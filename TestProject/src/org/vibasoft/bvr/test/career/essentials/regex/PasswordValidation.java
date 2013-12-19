@@ -1,18 +1,29 @@
+/*
+ * PasswordValidation.java
+ * @author: Balaji V
+ * @date: 19-Dec-2013
+ */
 package org.vibasoft.bvr.test.career.essentials.regex;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegexTestOne {
 
-	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{2,17}[^._-]$";
-//	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{0,15}[a-zA-Z0-9]$";
-//	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{0,15}[^._-]$";
+/*
+ * Below are the criteria to validate given password
+ * Must contain a digit from 0-9
+ * Must contain one uppercase character
+ * Must contain one lowercase character
+ * Length must be between 6 to 15 characters long 
+ */
+public class PasswordValidation {
+
+	String patternStr = "^[a-zA-Z0-9]{6,15}";
 	Pattern pattern;
 	Matcher matcher;
 	
-	RegexTestOne() {
-		System.out.println("RegexTestOne.RegexTestOne() called");
+	PasswordValidation() {
+		System.out.println("RegexTestTwo.RegexTestTwo() called");
 		pattern = Pattern.compile(patternStr);
 	}
 	
@@ -27,13 +38,9 @@ public class RegexTestOne {
 		
 		return validUserName;
 	}
-	
-	public void resetMatcher() {
-		matcher.reset();
-	}
 	/*public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		RegexTestOne test = new RegexTestOne();
+		RegexTestTwo test = new RegexTestTwo();
 		System.out.println(test.validateUserName("John123"));
 	}*/
 
