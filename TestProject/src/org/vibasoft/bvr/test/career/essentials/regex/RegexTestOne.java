@@ -5,9 +5,9 @@ import java.util.regex.Pattern;
 
 public class RegexTestOne {
 
-	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{2,17}[^._-]$";
+//	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{2,17}[^._-]$";
 //	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{0,15}[a-zA-Z0-9]$";
-//	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{0,15}[^._-]$";
+	String patternStr = "^[a-zA-Z][a-zA-Z0-9._-]{0,15}[^._-]$";
 	Pattern pattern;
 	Matcher matcher;
 	
@@ -17,12 +17,16 @@ public class RegexTestOne {
 	}
 	
 	public boolean validateUserName(String userName) {
+		System.out.printf("Username=%s\t",userName);
 		matcher = pattern.matcher(userName);
-		boolean validUserName = matcher.find();
-		System.out.println("Matching count = " + matcher.groupCount());
+//		boolean validUserName = matcher.find();
+		boolean validUserName = false;
+		System.out.print("Matching count = " + matcher.groupCount() + "\t");
 		int i = 0;
-		while(i < matcher.groupCount()) {
-			System.out.println("Match: " + matcher.group(i));
+//		while(i < matcher.groupCount()) {
+		while(matcher.find()) {
+			System.out.printf("Match: start index=%d\tend index=%d\tgroup=%s\n",matcher.start(),matcher.end(), matcher.group(i));
+			validUserName=true;
 		}
 		
 		return validUserName;

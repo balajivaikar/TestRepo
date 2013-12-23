@@ -17,8 +17,10 @@ import java.util.regex.Pattern;
  * Length must be between 6 to 15 characters long 
  */
 public class PasswordValidation {
-
-	String patternStr = "^[a-zA-Z0-9]{6,15}";
+// in pattern ()? is optional
+//	String patternStr = "^[a-zA-Z](?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){5,14}";
+//	String patternStr = "(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]){6,15}";
+	String patternStr = "(?=[a-zA-Z]*[0-9])(?=[a-z0-9]*[A-Z])(?=[A-Z0-9]*[a-z]){6,15}";
 	Pattern pattern;
 	Matcher matcher;
 	
@@ -27,21 +29,25 @@ public class PasswordValidation {
 		pattern = Pattern.compile(patternStr);
 	}
 	
-	public boolean validateUserName(String userName) {
-		matcher = pattern.matcher(userName);
-		boolean validUserName = matcher.find();
-		System.out.println("Matching count = " + matcher.groupCount());
+	public boolean validatePassword(String password) {
+		System.out.printf("Password=%s\t",password);
+		matcher = pattern.matcher(password);
+//		boolean validPassword = matcher.find();
+		boolean validPassword = false;
+		System.out.print("Matching count = " + matcher.groupCount() + "\t");
 		int i = 0;
-		while(i < matcher.groupCount()) {
-			System.out.println("Match: " + matcher.group(i));
+//		while(i < matcher.groupCount()) {
+		while(matcher.find()) {
+			System.out.printf("Match: start index=%d\tend index=%d\tgroup=%s\n",matcher.start(),matcher.end(), matcher.group(i));
+//			i++;
+			validPassword = true;
 		}
 		
-		return validUserName;
+		return validPassword;
 	}
-	/*public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		RegexTestTwo test = new RegexTestTwo();
-		System.out.println(test.validateUserName("John123"));
-	}*/
-
+	
+	public void resetMatcher() {
+		matcher.reset();
+	}
+	
 }
