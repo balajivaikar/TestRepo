@@ -6,6 +6,9 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 
+import org.vibasoft.bvr.test.career.essentials.common.Node;
+import org.vibasoft.bvr.test.career.essentials.common.Node.OPERATOR;
+
 public class TestRmiServerImpl extends UnicastRemoteObject implements TestRmiRemote{
 
 	/**
@@ -14,6 +17,7 @@ public class TestRmiServerImpl extends UnicastRemoteObject implements TestRmiRem
 	private static final long serialVersionUID = -604714710586395347L;
 	
 	String name = "";
+	Node node;
 	protected TestRmiServerImpl() throws RemoteException {
 		super();
 		// TODO Auto-generated constructor stub
@@ -61,6 +65,29 @@ public class TestRmiServerImpl extends UnicastRemoteObject implements TestRmiRem
 		super.finalize();
 		
 	}
+
+	@Override
+	public Node getNode() throws RemoteException {
+		// TODO Auto-generated method stub
+//		return new Node(5,10,OPERATOR.ADD)s;
+		return node;
+	}
+
+	@Override
+	public void setNode(Node root) throws RemoteException {
+		// TODO Auto-generated method stub
+		this.node = root;
+	}
+
+	@Override
+	public int evaluateTree() throws RemoteException {
+		// TODO Auto-generated method stub
+		return node.evaluate();
+	}
+	
+	
+	
+	
 
 	
 }
